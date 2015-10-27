@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" manifest="ibudget.manifest>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="icon" href="favicon.ico">
+
+		<title>iBudget</title>
+
+		<!-- JQuery -->
+		<script src="lib/js/jquery-1.11.3.min.js"></script>		
+		<!-- PhoneGap -->
+		<script src="phonegap.js"></script>		
+		<!-- Bootstrap core CSS -->
+		<link href="lib/css/bootstrap.min.css" rel="stylesheet">
+		<!-- Custom styles for this template -->
+		<link href="lib/css/style.css" rel="stylesheet">
+		<!-- Bootstrap Table CSS for this template -->
+		<link href="lib/css/jquery.dataTables.min.css" rel="stylesheet">		
+		<!-- Bootstrap Table CSS for this template -->
+		<link href="lib/css/dataTables.bootstrap.min.css" rel="stylesheet">		
+		<!-- Custom js for this template -->
+		<script src="lib/js/script.js"></script>		
+		<!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+		<!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+		<script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+		<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+	
+	<!-- Nav -->
+	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1" aria-expanded="false" aria-controls="navbar-collapse-1" style="z-index: 99999">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>			
+			<a class="navbar-brand" href="#">iBudget</a>	  
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="navbar-collapse-1" style="z-index: 99999">		 
+		  <ul class="nav navbar-nav navbar-left">
+			<li><a href="#" data-toggle="modal" data-target="#addtab">Add Tab</a></li>
+		  </ul>
+		  <ul class="nav navbar-nav navbar-right">
+			<li><a href="#" data-toggle="modal" data-target="#removetab" class="removetab">Remove Tab</a></li>
+		  </ul>
+		</div><!-- /.navbar-collapse -->
+	</nav>
+	
+	<!-- Container -->	
+	<div class="container body container-fluid">	
+	<div class="tabbable tabs-left">
+		<ul class="nav nav-tabs">
+			<li><a href="#" data-toggle="modal" data-target="#income">+</a></li>			
+			<li><a href="#" data-toggle="modal" data-target="#expense">-</a></li>
+		</ul>
+		<div class="tables tab-content">
+			<table id="summaryTable" class="table table-striped table-bordered responsive nowrap" cellspacing="0" width="100%">
+				<thead>
+					<tr>
+						<th id="col_date">Date</th>
+						<th id="col_income">Income</th>
+						<th id="col_expense">Expense</th>
+						<th id="col_description">Desciption</th>			
+						<th id="col_actions">Actions</th>
+					</tr>
+				</thead>			
+				<tbody>
+				<tr>
+					<td class="col_date_val">Test</td>
+					<td class="col_income_val">Test</td>
+					<td class="col_expense_val">Test</td>
+					<td class="col_description_val">Test</td>
+					<td>Test</td>
+				</tr>
+				</tbody>				
+				<tfoot>
+					<th id="col_total_date"></th>
+					<th id="col_total_income">Total Income</th>
+					<th id="col_total_expense">Total Expense</th>
+					<th id="col_total_description"></th>		
+					<th id="col_total_actions"></th>						
+				</tfoot>
+			</table>
+		</div>
+	</div>
+	</div>
+	
+	<!-- Footer -->
+	<div class="footer savings">
+		<div class="container">
+			<p class="text-muted">Place sticky footer content here.</p>
+		</div>
+	</div>
+	
+	<!-- Modals -->	
+	<div class="modal-container">
+		<!-- Modal Income -->
+		<div class="modal fade" id="income" tabindex="-1" role="dialog" aria-labelledby="income">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Add</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Add Income Details</div>					
+					<label class="col-sm-6 control-label" for="income_date_text">Date: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="income_date_text" placeholder="Month-Day-Year">
+					</div>	
+					<label class="col-sm-6 control-label" for="income_amount_text">Amount: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="income_amount_text" placeholder="Amount">
+					</div>				
+					<label class="col-sm-6 control-label" for="income_description_text">Description: </label>
+					<div class="col-sm-6">
+						<textarea type="text" class="form-control" id="income_description_text" placeholder="Description"></textarea>
+					</div>					
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="income-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- Modal Expense -->
+		<div class="modal fade" id="expense" tabindex="-1" role="dialog" aria-labelledby="expense">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Expense</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Add Expense Details</div>
+					<label class="col-sm-6 control-label" for="expense_date_text">Date: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="expense_date_text" placeholder="Month-Day-Year">
+					</div>	
+					<label class="col-sm-6 control-label" for="expense_amount_text">Amount: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="expense_amount_text" placeholder="Amount">
+					</div>				
+					<label class="col-sm-6 control-label" for="expense_description_text">Description: </label>
+					<div class="col-sm-6">
+						<textarea type="text" class="form-control" id="expense_description_text" placeholder="Description"></textarea>
+					</div>				
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="expense-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>
+		<!-- Modal Add Tab -->
+		<div class="modal fade" id="addtab" tabindex="-1" role="dialog" aria-labelledby="AddTab">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Add Tab</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Add Tab</div>
+					<label class="col-sm-6 control-label" for="addtab_name_text">Tab Name: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="addtab_name_text" placeholder="Tab Name">
+					</div>				
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="addtab-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>	
+		<!-- Modal Remove Tab -->
+		<div class="modal fade" id="removetab" tabindex="-1" role="dialog" aria-labelledby="removeTab">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Remove Tab</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Are you sure you want to remove the active tab</div>
+					<label class="col-sm-6 control-label" for="addtab_name_text">Tab Name: </label>
+					<div class="col-sm-6 disabled">
+						<input type="text" class="form-control disabled" id="removetab_name_text" placeholder="Tab Name" disabled>
+					</div>				
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="removetab-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>	
+		<!-- Modal Delete Record -->
+		<div class="modal fade" id="delete" tabindex="-1" role="dialog" aria-labelledby="expense">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Delete</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Are you sure you want to delete this record?</div>
+					<label class="col-sm-6 control-label" for="delete_name_text"></label>
+					<div class="col-sm-6">
+						<input type="hidden" class="form-control" id="delete_name_text" placeholder="Tab Name">
+					</div>
+					<input type="hidden" class="form-control" id="delete_id_text" placeholder="ID">					
+					<input type="hidden" class="form-control" id="delete_category_text" placeholder="Category">					
+					<input type="hidden" class="form-control" id="delete_tab_text" placeholder="Tab Name">					
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="delete-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>	
+		<!-- Modal Edit Record -->
+		<div class="modal fade" id="edit" tabindex="-1" role="dialog" aria-labelledby="expense">
+		  <div class="modal-dialog" role="document">
+			<div class="modal-content">
+			  <div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+				<h4 class="modal-title" id="myModalLabel">Edit</h4>
+			  </div>
+			  <div class="modal-body">
+				<div class="row center">
+					<div class="alert alert-info">Edit Record</div>
+					<label class="col-sm-6 control-label" for="edit_date_text">Date: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="edit_date_text" placeholder="Month-Day-Year">
+					</div>	
+					<label class="col-sm-6 control-label" for="edit_amount_text">Amount: </label>
+					<div class="col-sm-6">
+						<input type="text" class="form-control" id="edit_amount_text" placeholder="Amount">
+					</div>				
+					<label class="col-sm-6 control-label" for="edit_description_text">Description: </label>
+					<div class="col-sm-6">
+						<textarea type="text" class="form-control" id="edit_description_text" placeholder="Description"></textarea>
+					</div>
+					<input type="hidden" class="form-control" id="edit_id_text" placeholder="ID">					
+					<input type="hidden" class="form-control" id="edit_category_text" placeholder="Category">					
+					<input type="hidden" class="form-control" id="edit_tab_text" placeholder="Tab Name">					
+				</div>
+				<div class="row center">
+					<div class="result"></div>
+				</div>
+			  </div>
+			  <div class="modal-footer">				
+				<button type="button" class="btn btn-primary" id="edit-confirm">Confirm</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			  </div>
+			</div>
+		  </div>
+		</div>		
+	</div>	
+	
+	<!-- Bootstrap core JavaScript
+	================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->	
+	<script src="lib/js/bootstrap.min.js"></script>	
+	<script src="lib/js/jquery.dataTables.min.js"></script>
+	<script src="lib/js/dataTables.bootstrap.min.js"></script>
+	<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+	<script src="lib/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>

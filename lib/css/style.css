@@ -1,0 +1,173 @@
+.navbar-brand
+{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    text-align: center;
+    margin: auto;
+}
+
+.navbar-inverse .navbar-toggle {
+	z-index: 1;
+}
+
+.navbar-right {
+	margin-right: 0;
+}
+
+.center {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.center-main {
+	margin: 0 auto;
+	width: 100%;
+}
+
+table.dataTable thead th{
+	padding: 5px 0 !important;
+}
+
+table.dataTable.nowrap th, table.dataTable.nowrap td {
+	white-space: normal !important;
+}
+
+td, th {
+	min-width: 5px !important;
+	width: 5px !important;
+	text-align: left;
+}
+
+#col_income, #col_expense, .col_income_val, .col_expense_val, #col_actions, .col_actions,  #col_date, .col_date_val  {
+	min-width: 5px !important;
+	width: 5px !important;
+}
+
+#col_description, .col_description_val  {
+	width: 20px !important;
+}
+
+.tables {
+	margin-top: 15px;
+}
+
+[data-toggle~="popover"] {
+	cursor: pointer;
+}
+
+.vmiddle {
+	vertical-align: middle;
+}
+
+.result {
+	margin-top: 15px;
+}
+
+.modal-dialog .modal-body button {
+	width: 100%;
+	margin: 2% 0 2% 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	background: linear-gradient(to bottom, #fff 0%, #fff 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #fff))  !important;
+	background: -webkit-linear-gradient(top, #fff 0%, #fff 100%) !important;
+}
+
+.glyphicon-edit, .glyphicon-trash {
+	cursor: pointer;
+	padding-left: 15px;
+}
+
+.container.body {
+	margin-top: 55px;
+}
+
+.footer {
+	background-color: #F5F5F5;
+	width: 100%;
+	bottom: 0px;
+	height: 60px;
+	padding-top: 15px;
+	text-align: center;
+}
+
+.text-muted {
+	font-weight: bolder;
+}
+
+.col_description_val, #col_description {
+	width: 10%;
+	min-width: 10px !important;
+}
+
+/*
+body {
+  padding-top: 50px;
+}
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+.add div.dropdown {
+	display: inline-block;
+}
+
+.container.body {
+	margin-top: 25px;
+	margin-bottom: 25px;
+}
+
+.center {
+	margin: 0 auto;
+	width: 80%;
+}
+
+.center-main {
+	margin: 0 auto;
+	width: 100%;
+}
+
+[data-toggle~="popover"] {
+	cursor: pointer;
+}
+
+.vmiddle {
+	vertical-align: middle;
+}
+
+.result {
+	margin-top: 15px;
+}
+
+.modal-dialog .modal-body button {
+	width: 100%;
+	margin: 2% 0 2% 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover {
+	background: linear-gradient(to bottom, #fff 0%, #fff 100%) !important;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #fff), color-stop(100%, #fff))  !important;
+	background: -webkit-linear-gradient(top, #fff 0%, #fff 100%) !important;
+}
+
+.glyphicon-edit, .glyphicon-trash {
+	cursor: pointer;
+	padding-left: 15px;
+}
+
+.alert {
+	text-align: center;
+}
+
+.modal .form-control {
+	width: 100%;
+}
+
+#edit_col_action_edit, #edit_col_action_delete {
+	padding-left: 0;
+}
+*/
